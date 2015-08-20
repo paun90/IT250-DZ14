@@ -1,0 +1,26 @@
+<html t:type="layout" title="Dodavanje Sedam"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+      xmlns:p="tapestry:parameter">
+
+      <t:beaneditform object="soba" exclude="id" add="captchaImage,cap" >
+      <p:captchaImage>
+        <label for="captchaImage">Slika koda</label>
+        <t:KaptchaImage t:id="kaptchaImage" t:validate="none"/>
+      </p:captchaImage>
+      <p:cap>
+        <t:KaptchaField t:image="kaptchaImage" id="cap" visible="true" label="characters"/>
+      </p:cap>
+      </t:beaneditform>
+      <t:datecomp/>
+      <t:jquery.datatable source="listaSoba" exclude="id" add="edit,delete" t:options="options" row="onesoba">
+      
+        <p:editCell>
+            <t:actionlink t:id="edit" context="onesoba">Edit</t:actionlink>
+        </p:editCell>
+        <p:deleteCell>
+            <t:actionlink t:id="delete" context="onesoba.id">Delete</t:actionlink>
+        </p:deleteCell>
+      </t:jquery.datatable>
+
+
+</html>
